@@ -8,7 +8,7 @@ runs:
   using: "composite"
   steps:
     - name: Set result
-      is: set-result
+      id: set-result
       shell: bash
       run: |
         value="a\nb\nc"

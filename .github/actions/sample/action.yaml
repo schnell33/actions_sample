@@ -1,7 +1,7 @@
 name: 'My Composite Action'
 description: 'This action does something'
 outputs:
-  result:
+  matrix:
     description: 'The result of the action'
     value: ${{ steps.set-result.outputs.result }}
 runs:

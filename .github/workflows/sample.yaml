@@ -1,0 +1,14 @@
+name: sample
+
+run-name: My Composite Action
+
+on: [push]
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: .github/actions/my-composite-action
+        id: my-action
+      - name: Use the output
+        run: echo "The result is ${{ steps.my-action.outputs.result }}"

@@ -1,0 +1,13 @@
+name: 'My Composite Action'
+description: 'This action does something'
+outputs:
+  result:
+    description: 'The result of the action'
+    value: ${{ steps.set-result.outputs.result }}
+runs:
+  using: "composite"
+  steps:
+    - name: Set result
+      id: set-result
+      shell: bash
+      run: echo "result=some value" >> $GITHUB_OUTPUT

@@ -8,7 +8,7 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/actions/sample
+      - uses: ./.github/actions/sample
         id: my-action
       - name: Use the output
         run: echo "The result is ${{ steps.my-action.outputs.result }}"

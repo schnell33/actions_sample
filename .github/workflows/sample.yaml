@@ -13,6 +13,7 @@ jobs:
         id: my-action
       - name: Use the output
         run: |
-            for i in ${{ steps.my-action.outputs.matrix }}; do
+            result=${{ steps.my-action.outputs.matrix }}
+            for i in $(echo ${result} | jq -r '.[]'); do
                 echo $i
             done

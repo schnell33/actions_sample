@@ -8,6 +8,10 @@ runs:
   using: "composite"
   steps:
     - name: Set result
-      id: set-result
+      is: set-result
       shell: bash
-      run: echo "result=some value" >> $GITHUB_OUTPUT
+      run: |
+        value="a\nb\nc"
+        result=$(echo "$value" | cut -d'/' -f1 | sort -u | jq -R -s -c 'split("\n") | map(select(length > 0))')
+        echo "result=$result" >> $GITHUB_OUTPUT
+

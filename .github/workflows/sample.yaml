@@ -12,4 +12,7 @@ jobs:
       - uses: ./.github/actions/sample
         id: my-action
       - name: Use the output
-        run: echo "The result is ${{ steps.my-action.outputs.matrix }}"
+        run: |
+            for i in ${{ steps.my-action.outputs.matrix }}; do
+                echo $i
+            done
